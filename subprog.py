@@ -1,16 +1,16 @@
 from math import log2
 from random import choice
-def citire(numefisier):
+def citire(numefisier):                                             #citirea fisierului
     with open(numefisier) as f:
         cuvinte=f.read().split()
     return cuvinte
 
-def extragere(lista):
+def extragere(lista):                                               #extragerea aleatorie a unui cuvant din lista
     cuvant=choice(lista)
     return cuvant
 
-def comparatie(cuvant1,cuvant2):
-    rezultat=["*"]*5
+def comparatie(cuvant1,cuvant2):                                    #compararea a doua cuvinte, obtinand un "sablon", unde simbolul '$' inseamna verde,
+    rezultat=["*"]*5                                                #simbolul '|' inseamna galben, iar simbolul '*' inseamna gri
     copie1=[x for x in cuvant1]
     copie2=[x for x in cuvant2]
     for litera in range(len(cuvant2)):
@@ -24,11 +24,11 @@ def comparatie(cuvant1,cuvant2):
             copie1[copie1.index(copie2[litera])]="|"
     return tuple(rezultat)
 
-def verificare(cuvant1_din_lista_mare,cuvant2_de_ghicit,cuvant_random,sablon):
-    for semn in range(len(sablon)):
-        if sablon[semn]=='$':
-            if cuvant2_de_ghicit[semn]!=cuvant1_din_lista_mare[semn]:
-                break
+def verificare(cuvant1_din_lista_mare,cuvant2_de_ghicit,cuvant_random,sablon):         #verific daca cuvantul din lista de cuvinte (cuvant1_din_lista_mare)
+    for semn in range(len(sablon)):                                                    #este o posibilitate pentru cuvantul pe care trebuie sa-l ghicesc
+        if sablon[semn]=='$':                                                          #(cuvant2_de_ghicit) folosindu-ma de cuvantul cu entropia cea mai buna
+            if cuvant2_de_ghicit[semn]!=cuvant1_din_lista_mare[semn]:                  #la momentul respectiv (cuvant_random) si de sablonul creat la subprogramul
+                break                                                                  #'comparatie'
         elif sablon[semn]=='|':
             if cuvant_random[semn] not in cuvant1_din_lista_mare or cuvant_random[semn]==cuvant1_din_lista_mare[semn] or cuvant2_de_ghicit.count(cuvant_random[semn])!=cuvant1_din_lista_mare.count(cuvant_random[semn]):
                 break
@@ -40,8 +40,8 @@ def verificare(cuvant1_din_lista_mare,cuvant2_de_ghicit,cuvant_random,sablon):
         return 1
     return 0
 
-def selectare(sablon,lista,cuvant_de_ghicit,cuvant_random):
-    indice=0
+def selectare(sablon,lista,cuvant_de_ghicit,cuvant_random):                         #elimin din lista de cuvinte, cuvintele care nu ma ajuta sa ghicesc cuvantul,
+    indice=0                                                                        #folosind subprogramul 'verificare'
     while indice<len(lista):
         if verificare(lista[indice],cuvant_de_ghicit,cuvant_random,sablon)==0:
             del lista[indice]
@@ -49,8 +49,8 @@ def selectare(sablon,lista,cuvant_de_ghicit,cuvant_random):
             indice+=1
     return lista
 
-def calcul_entropie(lista):
-    dictionar = {}
+def calcul_entropie(lista):                                                         #calculez entropia fiecarui cuvant, folosind lista de la momentul respectiv
+    dictionar = {}                                                                  #si o sorterz descrescator dupa ecntropie
     lista_entr = []
     for indice1 in range(len(lista)):
         dictionar.clear()
