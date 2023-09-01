@@ -18,7 +18,7 @@ In both versions, the output will be:
 2.	then a list ordered descending by entropy
 3.	the random word which must be find
 4.	after that, every try will be printed out, followed by its entropy at that moment, and a list of *remaining words*(after every try, the list of words is updated, removing each word which doesn’t have any similarity and recalculating the entropy for each word)
-5.	in the end, if the searched word is find, it will be printed again, otherwise the messages „nereusit” and „Cuvantul nu a fost gasit” will appear. All the tries with their entropies and the execution time will be printed out.
+5.	in the end, if the searched word is find, it will be printed again, otherwise the messages "nereusit" and "Cuvantul nu a fost gasit" will appear. All the tries with their entropies and the execution time will be printed out.
 
 ![](<img width="736" alt="Screenshot 2023-09-01 at 15 48 59" src="https://github.com/TaviF24/Wordle-project/assets/118764142/d2601d4a-da0e-4789-ad63-f8d9ed0217ef">
 )  
