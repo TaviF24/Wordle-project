@@ -6,5 +6,8 @@ A [Wordle simulator](https://www.nytimes.com/games/wordle/index.html), using [Sh
 The main idea of the project is to select a random word from a list of words, then the computer have to find it in as few tries as possible.
 
 ## What I used
+-	Operating system: MacOS
+-	IDE: Pycharm 2022.2.5
+-	Language: Python 3.10
 
  
