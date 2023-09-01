@@ -12,8 +12,8 @@ I made two versions of the Wordle game simulator, but the only difference betwee
 -	[subprog.py](subprog.py) has all the functions used in *wordle_1.py*;
 -	[processes.py](processes.py]) has some functions that are in the *subprog.py* file but they are modified for multiprocessing;
 -	[words.txt](words.txt) contains **11454 Romanian words** used in this game simulator.
-> [!NOTE]
-> If you modify the number of words in the *words.txt* file, then you have to modify the *processes.py* file too.
+ > [!NOTE]
+ > If you modify the number of words in the *words.txt* file, then you have to modify the *processes.py* file too.
 
 In both versions, the output will be:
 1.	every word followed by its entropy for the entire list
